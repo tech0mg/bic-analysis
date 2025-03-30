@@ -67,5 +67,6 @@ jobs:
         id: deploy-to-webapp
         with:
           app-name: 'tech0-gen-8-step4-bic-analysis'
+          package: .
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_E10FD1027B8A4CE78B0686E858F3B651 }}
