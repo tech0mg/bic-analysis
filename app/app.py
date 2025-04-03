@@ -26,6 +26,15 @@ if not st.session_state["logged_in"]:
     else:
         register_store()
     st.stop()  # ログイン状態になっていない場合はここで処理を終了
+
+if st.button("現在のIPアドレスを確認する"):
+    try:
+        # 外部サービスを使ってグローバルIPを取得
+        ip = requests.get('https://api.ipify.org').text
+        st.success(f"現在のIPアドレス: {ip}")
+    except Exception as e:
+        st.error("IPアドレスの取得に失敗しました。")
+
 # ===== ログイン済みの場合 =====
 
 
