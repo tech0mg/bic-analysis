@@ -25,21 +25,6 @@ if not st.session_state["logged_in"]:
         login_page()
     else:
         register_store()
-
-
-    # --- IPアドレス表示セクション ---
-    with st.expander("ネットワーク情報の確認"):
-        st.markdown("以下のボタンを押すと、アプリが実行されている現在のIPアドレスを表示します。")
-        st.write("ユーザーIPアドレス（Streamlit内部）:")
-        st.write(st.request_remote_addr)  # ただし非公開APIのため動作保証なし
-
-
-        if st.button("現在のIPアドレスを確認する"):
-            try:
-                ip = requests.get('https://api.ipify.org').text
-                st.success(f"現在のIPアドレス: {ip}")
-            except Exception as e:
-                st.error("IPアドレスの取得に失敗しました。")
     st.stop()  # ログイン状態になっていない場合はここで処理を終了
 
 # ===== ログイン済みの場合 =====
