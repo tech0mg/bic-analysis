@@ -30,6 +30,9 @@ if not st.session_state["logged_in"]:
     # --- IPアドレス表示セクション ---
     with st.expander("ネットワーク情報の確認"):
         st.markdown("以下のボタンを押すと、アプリが実行されている現在のIPアドレスを表示します。")
+        st.write("ユーザーIPアドレス（Streamlit内部）:")
+        st.write(st.request_remote_addr)  # ただし非公開APIのため動作保証なし
+
 
         if st.button("現在のIPアドレスを確認する"):
             try:
